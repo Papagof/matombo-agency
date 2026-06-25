@@ -1,0 +1,78 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Industry {
+  HOTELS
+  RESTAURANT
+  REAL_ESTATE
+}
+
+enum ContactBusinessType {
+  HOTEL
+  RESTAURANT
+  REAL_ESTATE
+  OTHER
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  excerpt     String
+  industry    Industry
+  authorName  String
+  readMinutes Int
+  imageSeed   String
+  featured    Boolean  @default(false)
+  publishedAt DateTime
+  sortOrder   Int      @default(0)
+}
+
+model CaseStudy {
+  id        String   @id @default(cuid())
+  title     String
+  summary   String
+  industry  Industry
+  tags      String[]
+  imageSeed String
+  metrics   Json
+  featured  Boolean  @default(false)
+  sortOrder Int      @default(0)
+}
+
+model Service {
+  id          String @id @default(cuid())
+  name        String
+  description String
+  icon        String
+  sortOrder   Int    @default(0)
+}
+
+model PricingTier {
+  id          String   @id @default(cuid())
+  name        String
+  tagline     String
+  priceLabel  String
+  priceSuffix String?
+  features    String[]
+  ctaLabel    String
+  highlighted Boolean  @default(false)
+  sortOrder   Int      @default(0)
+}
+
+model ContactSubmission {
+  id        String              @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  business  ContactBusinessType
+  budget    String?
+  message   String
+  consent   Boolean
+  createdAt DateTime            @default(now())
+}

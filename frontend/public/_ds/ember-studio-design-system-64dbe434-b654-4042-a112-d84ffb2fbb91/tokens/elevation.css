@@ -1,0 +1,24 @@
+/* Ember Studio — Radius & Elevation tokens
+   Radius: never mix — buttons 8px, cards 12px, pills 9999px.
+   Shadows: warm-tinted, soft. Flat at rest, lift on hover. */
+:root {
+  /* Border radius */
+  --radius-sm:   4px;     /* inline code, small badges */
+  --radius-md:   8px;     /* buttons, inputs, selects, dropdowns */
+  --radius-lg:   12px;    /* cards, panels, modals, popovers */
+  --radius-full: 9999px;  /* avatars, chips, pills, progress bars */
+
+  /* Elevation — warm shadows (stone-900 tint) */
+  --shadow-card-hover: 0 4px 16px rgba(28, 25, 23, 0.06);
+  --shadow-button-glow: 0 4px 12px rgba(194, 65, 12, 0.25);
+  --shadow-modal: 0 24px 48px rgba(28, 25, 23, 0.12);
+  --shadow-popover: 0 8px 24px rgba(28, 25, 23, 0.08);
+
+  /* Borders */
+  --border-width: 1px;
+  --border-accent-width: 2px;   /* selected card left border */
+
+  /* Motion */
+  --transition-fast: 150ms ease;  /* @kind other */
+  --transition-base: 300ms ease;  /* @kind other */
+}

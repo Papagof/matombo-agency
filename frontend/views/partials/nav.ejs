@@ -1,0 +1,28 @@
+<%
+const navLinks = [
+  { href: "index.dc.html", key: "home", label: "Home" },
+  { href: "about.dc.html", key: "about", label: "About" },
+  { href: "services.dc.html", key: "services", label: "Services" },
+  { href: "portfolio.dc.html", key: "portfolio", label: "Portfolio" },
+  { href: "blog.dc.html", key: "blog", label: "Blog" },
+  { href: "contact.dc.html", key: "contact", label: "Contact" },
+];
+%>
+<header style="position:sticky;top:0;z-index:50;background:rgba(250,250,249,0.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--border)">
+  <nav aria-label="Primary" style="max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 20px">
+    <a href="index.dc.html" aria-label="Matombo Agency home" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-primary)">
+      <span aria-hidden="true" style="display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--stone-900);color:var(--primary)"><img src="https://picsum.photos/seed/matomborock/120/120" alt="Matombo Agency rock logo" style="width:100%;height:100%;object-fit:cover;border-radius:8px"></span>
+      <span style="display:flex;flex-direction:column;line-height:1"><span style="font-family:var(--font-display);font-weight:700;font-size:20px;letter-spacing:-0.02em">Matombo</span><span style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-top:2px">Agency · Lagos</span></span>
+    </a>
+    <div style="display:flex;align-items:center;gap:6px 22px;flex-wrap:wrap">
+      <% navLinks.forEach(function(link) { %>
+        <% if (link.key === active) { %>
+      <a href="<%= link.href %>" aria-current="page" style="text-decoration:none;font-size:15px;font-weight:600;color:var(--primary);padding:6px 2px;border-bottom:2px solid var(--primary)" style-hover="color:var(--primary-hover)" style-focus="outline:2px solid var(--primary);outline-offset:3px;border-radius:2px"><%= link.label %></a>
+        <% } else { %>
+      <a href="<%= link.href %>" style="text-decoration:none;font-size:15px;font-weight:400;color:var(--text-secondary);padding:6px 2px;border-bottom:2px solid transparent" style-hover="color:var(--primary)" style-focus="outline:2px solid var(--primary);outline-offset:3px;border-radius:2px"><%= link.label %></a>
+        <% } %>
+      <% }); %>
+      <a href="contact.dc.html" style="display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px;border-radius:8px;background:var(--primary);color:#fff;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--primary);transition:background 150ms ease,box-shadow 150ms ease" style-hover="background:var(--primary-hover);box-shadow:var(--shadow-button-glow)" style-focus="outline:2px solid var(--primary);outline-offset:3px">Book a free call</a>
+    </div>
+  </nav>
+</header>
