@@ -31,13 +31,6 @@ For production: `npm run build && npm start` (from `backend/`).
 
 See [CLAUDE.md](CLAUDE.md) for the full architecture.
 
-## Getting started with git
+## Repository
 
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/<you>/<repo>.git
-git push -u origin main
-```
+https://github.com/Papagof/matombo-agency
