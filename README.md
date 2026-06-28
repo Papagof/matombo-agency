@@ -1,21 +1,21 @@
 # Digital Marketing Website
 
-Built with the Ember Studio Design System. TypeScript + Express backend with a Postgres database (via Prisma) for the Services, Portfolio, Blog, and Contact-form content.
+TypeScript + Express backend with a Postgres database (via Prisma), rendering plain server-rendered EJS pages with hand-written CSS (no client-side framework).
 
 ## Layout
 
 - `backend/` — Express + TypeScript server, Prisma schema/seed, `.env`
-- `frontend/public/` — static pages and assets, served as-is
-- `frontend/views/` — EJS templates the server renders for the database-backed pages
+- `frontend/public/` — static assets: `css/` (tokens, base, layout, components) and `js/contact-form.js`
+- `frontend/views/` — EJS templates the server renders for every page
 
 ## Pages
 
-- `index.dc.html` — Home (static, served from `frontend/public/`)
-- `about.dc.html` — About (static, served from `frontend/public/`)
-- `services.dc.html` — Services & pricing (server-rendered from Postgres)
-- `portfolio.dc.html` — Portfolio / case studies (server-rendered from Postgres)
-- `blog.dc.html` — Blog (server-rendered from Postgres)
-- `contact.dc.html` — Contact (static page; the form POSTs to `/api/contact`, which saves the lead to Postgres)
+- `/` — Home
+- `/about` — About
+- `/services` — Services & pricing (server-rendered from Postgres)
+- `/portfolio` — Portfolio / case studies (server-rendered from Postgres)
+- `/blog` — Blog (server-rendered from Postgres)
+- `/contact` — Contact (the form POSTs to `/api/contact`, which saves the lead to Postgres)
 
 ## Getting started
 

@@ -14,174 +14,164 @@ const jsonLd = {
 };
 %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
 <%- include('partials/head', {
   title: "Services — SEO, paid ads & content for Lagos hotels, restaurants & real estate",
   description: "Matombo Agency services: local SEO, paid acquisition, social, content and high-converting landing pages for Hotels Lagos, AirBnB Lagos, Restaurant and lounge Lagos and real estate Lagos.",
   keywords: "SEO Lagos, paid ads Lagos, Hotels Lagos, AirBnB Lagos, Restaurant and lounge Lagos, real estate Lagos marketing",
   jsonLd: jsonLd,
 }) %>
+</head>
+<body>
 
-<div style="font-family:var(--font-body);color:var(--text-primary);background:var(--bg-page);overflow-x:hidden;min-height:100vh">
+<%- include('partials/nav', { active: 'services' }) %>
 
-  <%- include('partials/nav', { active: 'services' }) %>
+<!-- HERO -->
+<section class="section--dark">
+  <div class="container section--hero">
+    <span class="hero-eyebrow">What we do</span>
+    <h1 class="hero-title" style="color:var(--stone-50);max-width:16ch">Everything you need to grow. Nothing you don't.</h1>
+    <p class="hero-subtitle" style="color:var(--stone-300)">A focused set of services, built for hospitality and property. Pick the engine you need — or let us run the whole thing.</p>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <section style="background:var(--stone-900);color:var(--stone-50)">
-    <div style="max-width:1200px;margin:0 auto;padding:clamp(48px,7vw,88px) 24px">
-      <span style="display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--primary);margin-bottom:18px">What we do</span>
-      <h1 style="font-family:var(--font-display);font-weight:700;font-size:clamp(38px,6.5vw,80px);line-height:1.03;letter-spacing:-0.02em;margin:0 0 20px;color:var(--stone-50);max-width:16ch">Everything you need to grow. Nothing you don't.</h1>
-      <p style="font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:var(--stone-300);max-width:60ch;margin:0">A focused set of services, built for hospitality and property. Pick the engine you need — or let us run the whole thing.</p>
+<!-- SERVICES GRID -->
+<section class="container section">
+  <div class="cards-grid">
+    <% services.forEach(function (service) { %>
+    <div class="card">
+      <span class="icon-tile icon-tile--primary" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><%- service.iconPath %></svg></span>
+      <h3 style="font-size:21px;margin:0 0 8px"><%= service.name %></h3>
+      <p style="margin:0;font-size:15px;line-height:1.55;color:var(--text-secondary)"><%= service.description %></p>
     </div>
-  </section>
+    <% }); %>
+  </div>
+</section>
 
-  <!-- SERVICES GRID -->
-  <section style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,88px) 24px">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
-      <% services.forEach(function (service) { %>
-      <x-import component-from-global-scope="EmberStudioDesignSystem_64dbe4.Card" hint-size="100%,230px" style="height:100%">
-        <div>
-          <span aria-hidden="true" style="display:grid;place-items:center;width:44px;height:44px;border-radius:8px;background:rgba(194,65,12,0.1);color:var(--primary);margin-bottom:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><%- service.iconPath %></svg></span>
-          <h3 style="font-family:var(--font-display);font-weight:700;font-size:21px;margin:0 0 8px"><%= service.name %></h3>
-          <p style="margin:0;font-size:15px;line-height:1.55;color:var(--text-secondary)"><%= service.description %></p>
-        </div>
-      </x-import>
+<!-- PROCESS TIMELINE -->
+<section class="section--surface">
+  <div class="container section">
+    <div class="section-head">
+      <span class="section-eyebrow">The process</span>
+      <h2 class="section-title">From first call to compounding growth.</h2>
+    </div>
+    <ol class="process-grid">
+      <li><div class="process-grid-head"><span class="process-grid-num">1</span><span class="process-grid-line" aria-hidden="true"></span></div><h3 class="process-title">Discovery call</h3><p class="process-body">A free 30-minute call to understand your venue, goals and margins.</p></li>
+      <li><div class="process-grid-head"><span class="process-grid-num">2</span><span class="process-grid-line" aria-hidden="true"></span></div><h3 class="process-title">Strategy & plan</h3><p class="process-body">A keyword-led growth plan with clear targets and a transparent budget.</p></li>
+      <li><div class="process-grid-head"><span class="process-grid-num">3</span><span class="process-grid-line" aria-hidden="true"></span></div><h3 class="process-title">Build & launch</h3><p class="process-body">Campaigns, content and pages go live — usually within two weeks.</p></li>
+      <li><div class="process-grid-head"><span class="process-grid-num">4</span><span class="process-grid-line" aria-hidden="true"></span></div><h3 class="process-title">Optimise</h3><p class="process-body">Weekly tuning toward the numbers that matter, killing what doesn't work.</p></li>
+      <li><div class="process-grid-head"><span class="process-grid-num process-grid-num--last">5</span></div><h3 class="process-title">Scale</h3><p class="process-body">Reinvest what works into more bookings, more covers, more closings.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="container section">
+  <div class="section-head">
+    <span class="section-eyebrow">Why Matombo</span>
+    <h2 class="section-title">The honest comparison.</h2>
+  </div>
+  <div class="table-wrap">
+    <table class="compare-table">
+      <caption>How Matombo compares to a typical agency and an in-house hire</caption>
+      <thead>
+        <tr>
+          <th scope="col">What matters</th>
+          <th scope="col" class="is-featured">Matombo</th>
+          <th scope="col">Typical agency</th>
+          <th scope="col">In-house hire</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Knows the Lagos market</th><td class="is-featured">Deeply</td><td>Sometimes</td><td>Maybe</td></tr>
+        <tr><th scope="row">Hospitality & property focus</th><td class="is-featured">Exclusive</td><td>Generalist</td><td>One brand</td></tr>
+        <tr><th scope="row">Reports in revenue</th><td class="is-featured">Always</td><td>Vanity metrics</td><td>Varies</td></tr>
+        <tr><th scope="row">Full skill set</th><td class="is-featured">SEO, ads, content</td><td>Often siloed</td><td>Limited</td></tr>
+        <tr><th scope="row">Time to results</th><td class="is-featured">~2 weeks</td><td>1–2 months</td><td>3+ months</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PRICING TIERS -->
+<section class="section--dark">
+  <div class="container section">
+    <div class="section-head">
+      <span class="hero-eyebrow">Simple plans</span>
+      <h2 class="section-title" style="color:var(--stone-50)">Pricing that scales with you.</h2>
+    </div>
+    <div class="cards-grid" style="align-items:stretch">
+      <% tiers.forEach(function (tier) { %>
+      <% if (tier.highlighted) { %>
+      <div class="pricing-card pricing-card--highlighted">
+        <span class="badge pricing-badge" style="background:var(--primary);color:#fff">Most popular</span>
+        <h3 class="pricing-name"><%= tier.name %></h3>
+        <p class="pricing-tagline"><%= tier.tagline %></p>
+        <div class="pricing-price"><span class="pricing-price-value"><%= tier.priceLabel %></span><% if (tier.priceSuffix) { %><span class="pricing-price-suffix"><%= tier.priceSuffix %></span><% } %></div>
+        <ul class="pricing-features">
+          <% tier.features.forEach(function (feature) { %>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg><%= feature %></li>
+          <% }); %>
+        </ul>
+        <a href="/contact" class="btn btn-primary pricing-cta"><%= tier.ctaLabel %></a>
+      </div>
+      <% } else { %>
+      <div class="pricing-card pricing-card--plain">
+        <h3 class="pricing-name"><%= tier.name %></h3>
+        <p class="pricing-tagline"><%= tier.tagline %></p>
+        <div class="pricing-price"><span class="pricing-price-value"><%= tier.priceLabel %></span><% if (tier.priceSuffix) { %><span class="pricing-price-suffix"><%= tier.priceSuffix %></span><% } %></div>
+        <ul class="pricing-features">
+          <% tier.features.forEach(function (feature) { %>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg><%= feature %></li>
+          <% }); %>
+        </ul>
+        <a href="/contact" class="btn btn-outline-dark pricing-cta"><%= tier.ctaLabel %></a>
+      </div>
+      <% } %>
       <% }); %>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PROCESS TIMELINE -->
-  <section style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-    <div style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,88px) 24px">
-      <div style="max-width:60ch;margin-bottom:48px">
-        <span style="display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--primary);margin-bottom:14px">The process</span>
-        <h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4.5vw,48px);line-height:1.06;letter-spacing:-0.02em;margin:0">From first call to compounding growth.</h2>
-      </div>
-      <ol style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0">
-        <li style="position:relative;padding:0 20px 0 0"><div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="display:grid;place-items:center;width:48px;height:48px;border-radius:9999px;background:var(--primary);color:#fff;font-family:var(--font-display);font-weight:700;font-size:20px;flex-shrink:0">1</span><span aria-hidden="true" style="flex:1;height:2px;background:var(--border)"></span></div><h3 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin:0 0 8px">Discovery call</h3><p style="margin:0;font-size:15px;line-height:1.55;color:var(--text-secondary)">A free 30-minute call to understand your venue, goals and margins.</p></li>
-        <li style="position:relative;padding:0 20px 0 0"><div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="display:grid;place-items:center;width:48px;height:48px;border-radius:9999px;background:var(--primary);color:#fff;font-family:var(--font-display);font-weight:700;font-size:20px;flex-shrink:0">2</span><span aria-hidden="true" style="flex:1;height:2px;background:var(--border)"></span></div><h3 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin:0 0 8px">Strategy & plan</h3><p style="margin:0;font-size:15px;line-height:1.55;color:var(--text-secondary)">A keyword-led growth plan with clear targets and a transparent budget.</p></li>
-        <li style="position:relative;padding:0 20px 0 0"><div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="display:grid;place-items:center;width:48px;height:48px;border-radius:9999px;background:var(--primary);color:#fff;font-family:var(--font-display);font-weight:700;font-size:20px;flex-shrink:0">3</span><span aria-hidden="true" style="flex:1;height:2px;background:var(--border)"></span></div><h3 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin:0 0 8px">Build & launch</h3><p style="margin:0;font-size:15px;line-height:1.55;color:var(--text-secondary)">Campaigns, content and pages go live — usually within two weeks.</p></li>
-        <li style="position:relative;padding:0 20px 0 0"><div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="display:grid;place-items:center;width:48px;height:48px;border-radius:9999px;background:var(--primary);color:#fff;font-family:var(--font-display);font-weight:700;font-size:20px;flex-shrink:0">4</span><span aria-hidden="true" style="flex:1;height:2px;background:var(--border)"></span></div><h3 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin:0 0 8px">Optimise</h3><p style="margin:0;font-size:15px;line-height:1.55;color:var(--text-secondary)">Weekly tuning toward the numbers that matter, killing what doesn't work.</p></li>
-        <li style="position:relative"><div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><span style="display:grid;place-items:center;width:48px;height:48px;border-radius:9999px;background:var(--stone-900);color:#fff;font-family:var(--font-display);font-weight:700;font-size:20px;flex-shrink:0">5</span></div><h3 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin:0 0 8px">Scale</h3><p style="margin:0;font-size:15px;line-height:1.55;color:var(--text-secondary)">Reinvest what works into more bookings, more covers, more closings.</p></li>
-      </ol>
-    </div>
-  </section>
+<!-- FAQ -->
+<section class="container section" style="max-width:880px">
+  <div style="margin-bottom:36px">
+    <span class="section-eyebrow">Questions</span>
+    <h2 class="section-title">Frequently asked.</h2>
+  </div>
+  <div class="accordion">
+    <details class="accordion-item">
+      <summary>Which industries do you work with?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></summary>
+      <div class="accordion-body">We focus exclusively on hospitality and property in Lagos — hotels and short-stays, restaurants and lounges, and real estate. That focus is exactly why we get results faster.</div>
+    </details>
+    <details class="accordion-item">
+      <summary>How quickly will I see results?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></summary>
+      <div class="accordion-body">Paid campaigns can drive bookings within the first two weeks. SEO compounds over three to six months — we run both so you get quick wins and lasting growth.</div>
+    </details>
+    <details class="accordion-item">
+      <summary>Is there a long contract?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></summary>
+      <div class="accordion-body">No long lock-ins. We work on a rolling monthly basis — we'd rather earn your business every month than trap you in a contract.</div>
+    </details>
+    <details class="accordion-item">
+      <summary>Do you handle ad budget separately?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></summary>
+      <div class="accordion-body">Yes. Our fees cover strategy and management; your ad spend is separate and fully transparent — you always see exactly where it goes.</div>
+    </details>
+  </div>
+</section>
 
-  <!-- COMPARISON TABLE -->
-  <section style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,88px) 24px">
-    <div style="max-width:60ch;margin-bottom:40px">
-      <span style="display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--primary);margin-bottom:14px">Why Matombo</span>
-      <h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4.5vw,48px);line-height:1.06;letter-spacing:-0.02em;margin:0">The honest comparison.</h2>
+<!-- CTA BAND -->
+<section class="section--surface">
+  <div class="container section" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px">
+    <div style="flex:1 1 420px;min-width:0">
+      <h2 class="section-title" style="margin-bottom:14px">Not sure which plan fits?</h2>
+      <p style="font-size:18px;line-height:1.55;color:var(--text-secondary);margin:0;max-width:52ch">Book a free strategy call. We'll recommend the right starting point — no pressure.</p>
     </div>
-    <div style="overflow-x:auto;border:1px solid var(--border);border-radius:12px">
-      <table style="width:100%;border-collapse:collapse;min-width:640px;font-size:15px">
-        <caption style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">How Matombo compares to a typical agency and an in-house hire</caption>
-        <thead>
-          <tr style="background:var(--surface)">
-            <th scope="col" style="text-align:left;padding:18px 20px;font-weight:600;color:var(--text-muted);font-size:13px;letter-spacing:0.04em;text-transform:uppercase;border-bottom:1px solid var(--border)">What matters</th>
-            <th scope="col" style="text-align:left;padding:18px 20px;font-family:var(--font-display);font-weight:700;font-size:18px;border-bottom:2px solid var(--primary);background:rgba(194,65,12,0.05)">Matombo</th>
-            <th scope="col" style="text-align:left;padding:18px 20px;font-weight:600;color:var(--text-secondary);border-bottom:1px solid var(--border)">Typical agency</th>
-            <th scope="col" style="text-align:left;padding:18px 20px;font-weight:600;color:var(--text-secondary);border-bottom:1px solid var(--border)">In-house hire</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row" style="text-align:left;padding:16px 20px;font-weight:600;border-bottom:1px solid var(--border)">Knows the Lagos market</th><td style="padding:16px 20px;border-bottom:1px solid var(--border);background:rgba(194,65,12,0.04);color:var(--success);font-weight:600">Deeply</td><td style="padding:16px 20px;border-bottom:1px solid var(--border);color:var(--text-secondary)">Sometimes</td><td style="padding:16px 20px;border-bottom:1px solid var(--border);color:var(--text-secondary)">Maybe</td></tr>
-          <tr><th scope="row" style="text-align:left;padding:16px 20px;font-weight:600;border-bottom:1px solid var(--border)">Hospitality & property focus</th><td style="padding:16px 20px;border-bottom:1px solid var(--border);background:rgba(194,65,12,0.04);color:var(--success);font-weight:600">Exclusive</td><td style="padding:16px 20px;border-bottom:1px solid var(--border);color:var(--text-secondary)">Generalist</td><td style="padding:16px 20px;border-bottom:1px solid var(--border);color:var(--text-secondary)">One brand</td></tr>
-          <tr><th scope="row" style="text-align:left;padding:16px 20px;font-weight:600;border-bottom:1px solid var(--border)">Reports in revenue</th><td style="padding:16px 20px;border-bottom:1px solid var(--border);background:rgba(194,65,12,0.04);color:var(--success);font-weight:600">Always</td><td style="padding:16px 20px;border-bottom:1px solid var(--border);color:var(--text-secondary)">Vanity metrics</td><td style="padding:16px 20px;border-bottom:1px solid var(--border);color:var(--text-secondary)">Varies</td></tr>
-          <tr><th scope="row" style="text-align:left;padding:16px 20px;font-weight:600;border-bottom:1px solid var(--border)">Full skill set</th><td style="padding:16px 20px;border-bottom:1px solid var(--border);background:rgba(194,65,12,0.04);color:var(--success);font-weight:600">SEO, ads, content</td><td style="padding:16px 20px;border-bottom:1px solid var(--border);color:var(--text-secondary)">Often siloed</td><td style="padding:16px 20px;border-bottom:1px solid var(--border);color:var(--text-secondary)">Limited</td></tr>
-          <tr><th scope="row" style="text-align:left;padding:16px 20px;font-weight:600">Time to results</th><td style="padding:16px 20px;background:rgba(194,65,12,0.04);color:var(--success);font-weight:600">~2 weeks</td><td style="padding:16px 20px;color:var(--text-secondary)">1–2 months</td><td style="padding:16px 20px;color:var(--text-secondary)">3+ months</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+    <a href="/contact" class="btn btn-primary" style="height:54px;font-size:18px">Book a free strategy call <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+  </div>
+</section>
 
-  <!-- PRICING TIERS -->
-  <section style="background:var(--stone-900);color:var(--stone-50)">
-    <div style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,88px) 24px">
-      <div style="max-width:60ch;margin-bottom:44px">
-        <span style="display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--primary);margin-bottom:14px">Simple plans</span>
-        <h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4.5vw,48px);line-height:1.06;letter-spacing:-0.02em;margin:0;color:var(--stone-50)">Pricing that scales with you.</h2>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;align-items:stretch">
-        <% tiers.forEach(function (tier) { %>
-        <% if (tier.highlighted) { %>
-        <div style="background:var(--surface);border:2px solid var(--primary);border-radius:12px;padding:28px;display:flex;flex-direction:column;position:relative">
-          <span style="position:absolute;top:-12px;left:28px;display:inline-flex;align-items:center;padding:4px 12px;border-radius:9999px;background:var(--primary);color:#fff;font-size:12px;font-weight:600;letter-spacing:0.04em">Most popular</span>
-          <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;margin:0 0 6px;color:var(--text-primary)"><%= tier.name %></h3>
-          <p style="margin:0 0 18px;color:var(--text-muted);font-size:14px"><%= tier.tagline %></p>
-          <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:22px"><span style="font-family:var(--font-display);font-weight:700;font-size:40px;color:var(--text-primary)"><%= tier.priceLabel %></span><% if (tier.priceSuffix) { %><span style="color:var(--text-muted);font-size:15px"><%= tier.priceSuffix %></span><% } %></div>
-          <ul style="list-style:none;margin:0 0 28px;padding:0;display:flex;flex-direction:column;gap:12px;font-size:15px;color:var(--text-secondary)">
-            <% tier.features.forEach(function (feature) { %>
-            <li style="display:flex;gap:10px"><span style="color:var(--primary);flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><%= feature %></li>
-            <% }); %>
-          </ul>
-          <a href="contact.dc.html" style="margin-top:auto;display:inline-flex;align-items:center;justify-content:center;height:46px;border-radius:8px;background:var(--primary);color:#fff;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--primary);transition:background 150ms ease,box-shadow 150ms ease" style-hover="background:var(--primary-hover);box-shadow:var(--shadow-button-glow)" style-focus="outline:2px solid var(--primary);outline-offset:3px"><%= tier.ctaLabel %></a>
-        </div>
-        <% } else { %>
-        <div style="background:rgba(255,255,255,0.04);border:1px solid var(--stone-700);border-radius:12px;padding:28px;display:flex;flex-direction:column">
-          <h3 style="font-family:var(--font-display);font-weight:700;font-size:22px;margin:0 0 6px;color:var(--stone-50)"><%= tier.name %></h3>
-          <p style="margin:0 0 18px;color:var(--stone-500);font-size:14px"><%= tier.tagline %></p>
-          <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:22px"><span style="font-family:var(--font-display);font-weight:700;font-size:40px;color:var(--stone-50)"><%= tier.priceLabel %></span><% if (tier.priceSuffix) { %><span style="color:var(--stone-500);font-size:15px"><%= tier.priceSuffix %></span><% } %></div>
-          <ul style="list-style:none;margin:0 0 28px;padding:0;display:flex;flex-direction:column;gap:12px;font-size:15px;color:var(--stone-300)">
-            <% tier.features.forEach(function (feature) { %>
-            <li style="display:flex;gap:10px"><span style="color:var(--primary);flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><%= feature %></li>
-            <% }); %>
-          </ul>
-          <a href="contact.dc.html" style="margin-top:auto;display:inline-flex;align-items:center;justify-content:center;height:46px;border-radius:8px;background:transparent;color:var(--stone-50);font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--stone-700);transition:background 150ms ease" style-hover="background:rgba(255,255,255,0.06)" style-focus="outline:2px solid #fff;outline-offset:3px"><%= tier.ctaLabel %></a>
-        </div>
-        <% } %>
-        <% }); %>
-      </div>
-    </div>
-  </section>
+<%- include('partials/footer') %>
 
-  <!-- FAQ ACCORDION -->
-  <section style="max-width:880px;margin:0 auto;padding:clamp(56px,8vw,88px) 24px">
-    <div style="margin-bottom:36px">
-      <span style="display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--primary);margin-bottom:14px">Questions</span>
-      <h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4.5vw,48px);line-height:1.06;letter-spacing:-0.02em;margin:0">Frequently asked.</h2>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:12px">
-      <details style="border:1px solid var(--border);border-radius:12px;background:var(--surface);overflow:hidden">
-        <summary style="cursor:pointer;list-style:none;padding:20px 22px;font-family:var(--font-display);font-weight:700;font-size:18px;display:flex;justify-content:space-between;align-items:center;gap:16px">Which industries do you work with?<span aria-hidden="true" style="color:var(--primary);flex-shrink:0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span></summary>
-        <div style="padding:0 22px 22px;font-size:16px;line-height:1.6;color:var(--text-secondary)">We focus exclusively on hospitality and property in Lagos — hotels and short-stays, restaurants and lounges, and real estate. That focus is exactly why we get results faster.</div>
-      </details>
-      <details style="border:1px solid var(--border);border-radius:12px;background:var(--surface);overflow:hidden">
-        <summary style="cursor:pointer;list-style:none;padding:20px 22px;font-family:var(--font-display);font-weight:700;font-size:18px;display:flex;justify-content:space-between;align-items:center;gap:16px">How quickly will I see results?<span aria-hidden="true" style="color:var(--primary);flex-shrink:0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span></summary>
-        <div style="padding:0 22px 22px;font-size:16px;line-height:1.6;color:var(--text-secondary)">Paid campaigns can drive bookings within the first two weeks. SEO compounds over three to six months — we run both so you get quick wins and lasting growth.</div>
-      </details>
-      <details style="border:1px solid var(--border);border-radius:12px;background:var(--surface);overflow:hidden">
-        <summary style="cursor:pointer;list-style:none;padding:20px 22px;font-family:var(--font-display);font-weight:700;font-size:18px;display:flex;justify-content:space-between;align-items:center;gap:16px">Is there a long contract?<span aria-hidden="true" style="color:var(--primary);flex-shrink:0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span></summary>
-        <div style="padding:0 22px 22px;font-size:16px;line-height:1.6;color:var(--text-secondary)">No long lock-ins. We work on a rolling monthly basis — we'd rather earn your business every month than trap you in a contract.</div>
-      </details>
-      <details style="border:1px solid var(--border);border-radius:12px;background:var(--surface);overflow:hidden">
-        <summary style="cursor:pointer;list-style:none;padding:20px 22px;font-family:var(--font-display);font-weight:700;font-size:18px;display:flex;justify-content:space-between;align-items:center;gap:16px">Do you handle ad budget separately?<span aria-hidden="true" style="color:var(--primary);flex-shrink:0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span></summary>
-        <div style="padding:0 22px 22px;font-size:16px;line-height:1.6;color:var(--text-secondary)">Yes. Our fees cover strategy and management; your ad spend is separate and fully transparent — you always see exactly where it goes.</div>
-      </details>
-    </div>
-  </section>
-
-  <!-- CTA BAND -->
-  <section style="background:var(--surface);border-top:1px solid var(--border)">
-    <div style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,88px) 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px">
-      <div style="flex:1 1 420px;min-width:0">
-        <h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4.5vw,48px);line-height:1.06;letter-spacing:-0.02em;margin:0 0 14px">Not sure which plan fits?</h2>
-        <p style="font-size:18px;line-height:1.55;color:var(--text-secondary);margin:0;max-width:52ch">Book a free strategy call. We'll recommend the right starting point — no pressure.</p>
-      </div>
-      <a href="contact.dc.html" style="display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 30px;border-radius:8px;background:var(--primary);color:#fff;font-weight:600;font-size:18px;text-decoration:none;border:1px solid var(--primary);transition:background 150ms ease,box-shadow 150ms ease" style-hover="background:var(--primary-hover);box-shadow:var(--shadow-button-glow)" style-focus="outline:2px solid var(--primary);outline-offset:3px">Book a free strategy call <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
-    </div>
-  </section>
-
-  <%- include('partials/footer') %>
-
-</div>
-</x-dc>
 </body>
 </html>

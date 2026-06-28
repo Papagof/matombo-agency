@@ -12,7 +12,7 @@ app.set("views", path.join(frontendDir, "views"));
 app.use(express.json());
 app.use(pagesRouter);
 app.use(contactRouter);
-app.use(express.static(path.join(frontendDir, "public"), { index: "index.dc.html" }));
+app.use(express.static(path.join(frontendDir, "public")));
 
 const port = Number(process.env.PORT) || 3000;
 app.listen(port, () => {

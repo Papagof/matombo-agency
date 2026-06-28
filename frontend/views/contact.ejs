@@ -1,0 +1,128 @@
+<%
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact Matombo Agency",
+  mainEntity: {
+    "@type": "LocalBusiness",
+    name: "Matombo Agency",
+    image: "",
+    url: "https://matomboagency.com",
+    sameAs: ["https://instagram.com/matomboagency"],
+    email: "contact@matomboagency.com",
+    telephone: "+234-802-313-6685",
+    priceRange: "₦₦",
+    address: { "@type": "PostalAddress", streetAddress: "Happyland Estate, Lekki/Epe Expressway", addressLocality: "Lagos", addressCountry: "NG" },
+    areaServed: "Lagos, Nigeria",
+    openingHours: "Mo-Fr 09:00-18:00",
+  },
+};
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('partials/head', {
+  title: "Contact Matombo Agency — Book a free strategy call in Lagos",
+  description: "Book a free strategy call with Matombo Agency. Digital marketing for Lagos hotels, AirBnB, restaurants, lounges and real estate. Email, call or send us a message.",
+  keywords: "contact digital marketing agency Lagos, book strategy call Lagos, Hotels Lagos, real estate Lagos",
+  jsonLd: jsonLd,
+}) %>
+</head>
+<body>
+
+<%- include('partials/nav', { active: 'contact' }) %>
+
+<!-- HERO -->
+<section class="container section--hero">
+  <span class="hero-eyebrow">Get in touch</span>
+  <h1 class="hero-title" style="max-width:16ch">Let's talk about your growth.</h1>
+  <p class="hero-subtitle">Tell us about your hotel, restaurant or property business. We'll reply within one business day to set up your free strategy call.</p>
+</section>
+
+<!-- FORM + INFO -->
+<section class="container" style="padding:clamp(8px,2vw,16px) 0 clamp(56px,8vw,88px)">
+  <div style="display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start">
+
+    <!-- FORM -->
+    <form id="contact-form" class="card" style="flex:2 1 440px;min-width:0;padding:clamp(24px,4vw,40px)" aria-label="Contact form">
+      <h2 style="font-size:24px;margin:0 0 6px">Send us a message</h2>
+      <p style="font-size:15px;color:var(--text-muted);margin:0 0 28px">Fields marked with an asterisk (*) are required.</p>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="name" class="label">Full name *</label>
+          <input id="name" name="name" type="text" required autocomplete="name" placeholder="Adaeze Okafor" class="input">
+        </div>
+        <div class="field">
+          <label for="email" class="label">Email *</label>
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@yourbrand.com" class="input">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="phone" class="label">Phone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+234 802 313 6685" class="input">
+        </div>
+        <div class="field">
+          <label for="business" class="label">Business type *</label>
+          <select id="business" name="business" required class="select">
+            <option value="" disabled selected>Select one&hellip;</option>
+            <option value="hotel">Hotel or AirBnB</option>
+            <option value="restaurant">Restaurant or lounge</option>
+            <option value="realestate">Real estate</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="budget" class="label">Monthly marketing budget</label>
+        <select id="budget" name="budget" class="select">
+          <option value="" disabled selected>Optional &mdash; choose a range</option>
+          <option value="under-500k">Under ₦500k</option>
+          <option value="500k-1m">₦500k &ndash; ₦1m</option>
+          <option value="1m-plus">₦1m+</option>
+          <option value="not-sure">Not sure yet</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="message" class="label">How can we help? *</label>
+        <textarea id="message" name="message" required rows="5" placeholder="Tell us about your venue, your goals, and what's getting in the way." class="textarea"></textarea>
+      </div>
+
+      <div class="checkbox-row">
+        <input id="consent" name="consent" type="checkbox" required>
+        <label for="consent">I agree to be contacted by Matombo Agency about my enquiry. *</label>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block">Book my free strategy call <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></button>
+      <p id="contact-form-status" role="status" aria-live="polite" class="form-status"></p>
+    </form>
+
+    <!-- INFO -->
+    <div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:var(--space-5)">
+      <div style="background:var(--stone-900);color:var(--stone-50);border-radius:var(--radius-lg);padding:28px">
+        <h2 style="font-size:22px;margin:0 0 20px;color:var(--stone-50)">Reach us directly</h2>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px">
+          <li style="display:flex;gap:14px;align-items:flex-start"><span aria-hidden="true" style="color:var(--primary);flex-shrink:0;margin-top:2px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg></span><span><span style="display:block;font-size:13px;color:var(--stone-500);margin-bottom:2px">Email</span><a href="mailto:contact@matomboagency.com" style="color:var(--stone-50);text-decoration:none;font-size:16px;font-weight:600">contact@matomboagency.com</a></span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><span aria-hidden="true" style="color:var(--primary);flex-shrink:0;margin-top:2px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span><span><span style="display:block;font-size:13px;color:var(--stone-500);margin-bottom:2px">Phone</span><a href="tel:+2348023136685" style="color:var(--stone-50);text-decoration:none;font-size:16px;font-weight:600">+234 802 313 6685</a></span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><span aria-hidden="true" style="color:var(--primary);flex-shrink:0;margin-top:2px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span><span><span style="display:block;font-size:13px;color:var(--stone-500);margin-bottom:2px">Office</span><span style="color:var(--stone-50);font-size:16px;font-weight:600">Happyland Estate, Lekki/Epe Expressway</span></span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><span aria-hidden="true" style="color:var(--primary);flex-shrink:0;margin-top:2px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></span><span><span style="display:block;font-size:13px;color:var(--stone-500);margin-bottom:2px">Hours</span><span style="color:var(--stone-50);font-size:16px;font-weight:600">Mon&ndash;Fri &middot; 9am&ndash;6pm WAT</span></span></li>
+        </ul>
+      </div>
+      <div style="border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden">
+        <img src="https://picsum.photos/seed/lagosmap/800/420" alt="Map showing Matombo Agency's Happyland Estate, Lekki/Epe Expressway location" loading="lazy" width="800" height="420" style="height:200px;object-fit:cover;filter:grayscale(1) contrast(1.04) sepia(0.42) saturate(1.4) hue-rotate(-12deg)">
+        <div style="padding:18px 20px;background:var(--surface);display:flex;align-items:center;gap:10px"><span aria-hidden="true" style="color:var(--primary)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span><span style="font-size:14px;color:var(--text-secondary)">Serving hospitality &amp; property brands across Lagos.</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<%- include('partials/footer') %>
+
+<script src="/js/contact-form.js"></script>
+</body>
+</html>

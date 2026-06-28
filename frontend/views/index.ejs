@@ -1,0 +1,171 @@
+<%
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Matombo Agency",
+  description: "Digital marketing agency for hotels, restaurants and real estate in Lagos.",
+  areaServed: "Lagos, Nigeria",
+  email: "contact@matomboagency.com",
+  telephone: "+234-802-313-6685",
+  address: { "@type": "PostalAddress", addressLocality: "Lagos", addressCountry: "NG" },
+  url: "https://matomboagency.com",
+  sameAs: ["https://instagram.com/matomboagency"],
+  knowsAbout: ["Hotels Lagos", "AirBnB Lagos", "Restaurant and lounge Lagos", "real estate Lagos"],
+};
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('partials/head', {
+  title: "Matombo Agency — Digital marketing for Lagos hotels, restaurants & real estate",
+  description: "Matombo is the digital marketing agency Lagos hospitality and property brands trust. We grow hotels, AirBnB, restaurants, lounges and real estate businesses with bookings-focused marketing.",
+  keywords: "Hotels Lagos, AirBnB Lagos, Restaurant and lounge Lagos, real estate Lagos, digital marketing agency Lagos",
+  jsonLd: jsonLd,
+}) %>
+</head>
+<body>
+
+<%- include('partials/nav', { active: 'home' }) %>
+
+<!-- ===== HERO ===== -->
+<section class="section--dark">
+  <div class="container" style="padding-top:clamp(48px,8vw,104px);padding-bottom:clamp(48px,8vw,104px);display:flex;flex-wrap:wrap;gap:48px;align-items:center">
+    <div style="flex:2 1 460px;min-width:0">
+      <span class="hero-eyebrow">Digital marketing agency &middot; Lagos</span>
+      <h1 style="font-size:clamp(40px,7vw,86px);line-height:1.02;margin:0 0 24px;color:var(--stone-50)">More bookings. Fuller tables. Faster closings.</h1>
+      <p style="font-size:clamp(17px,1.6vw,21px);line-height:1.55;color:var(--stone-300);max-width:60ch;margin:0 0 36px">Matombo is the growth partner Lagos hotels, restaurants and property teams rely on. We turn attention into revenue — built specifically for hospitality and real estate brands that want to win their market.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px">
+        <a href="/contact" class="btn btn-primary">Book a free strategy call
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+        <a href="/portfolio" class="btn btn-outline-dark">See our work</a>
+      </div>
+    </div>
+    <div style="flex:1 1 320px;min-width:0">
+      <div style="position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--stone-700)">
+        <img src="https://picsum.photos/seed/lagoshotel/720/880" alt="A modern Lagos hotel lobby at dusk, warm lighting" loading="lazy" width="720" height="880" style="height:clamp(360px,46vw,520px);object-fit:cover;filter:grayscale(1) contrast(1.04) sepia(0.45) saturate(1.5) hue-rotate(-12deg)">
+        <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(28,25,23,0) 40%,rgba(28,25,23,0.55))"></div>
+        <div style="position:absolute;left:16px;bottom:16px;right:16px;display:flex;align-items:center;gap:12px;background:rgba(28,25,23,0.55);backdrop-filter:blur(6px);border:1px solid var(--stone-700);border-radius:var(--radius-lg);padding:12px 14px">
+          <span style="font-family:var(--font-display);font-weight:700;font-size:30px;color:var(--primary);line-height:1">3.2&times;</span>
+          <span style="font-size:13px;color:var(--stone-300);line-height:1.35">average return on ad spend across hospitality clients</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--stone-700)">
+    <div class="container" style="padding-top:20px;padding-bottom:20px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 36px">
+      <span style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone-500)">Trusted by Lagos brands</span>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--stone-300);opacity:0.8">Marina Suites</span>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--stone-300);opacity:0.8">&Igrave;j&#7885;ba Lounge</span>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--stone-300);opacity:0.8">Lekki Heights</span>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--stone-300);opacity:0.8">Harbour Stays</span>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--stone-300);opacity:0.8">&#7884;ba Realty</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS / RESULTS ===== -->
+<section class="section container" aria-label="Results">
+  <div class="section-head" style="margin-bottom:40px">
+    <span class="section-eyebrow">The results that matter</span>
+    <h2 class="section-title">We're measured in revenue, not impressions.</h2>
+  </div>
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-value">+148%</div><p class="stat-label">direct bookings for a boutique hotel in six months</p></div>
+    <div class="stat"><div class="stat-value">&#8358;2.4B</div><p class="stat-label">in qualified property pipeline sourced for real estate Lagos clients</p></div>
+    <div class="stat"><div class="stat-value">2.1M</div><p class="stat-label">monthly diners reached for restaurant and lounge Lagos campaigns</p></div>
+    <div class="stat"><div class="stat-value">40+</div><p class="stat-label">hospitality and property brands grown across Lagos</p></div>
+  </div>
+</section>
+
+<!-- ===== WHO WE SERVE ===== -->
+<section class="section--surface" aria-label="Who we serve">
+  <div class="container section">
+    <div class="section-head">
+      <span class="section-eyebrow">Built for your industry</span>
+      <h2 class="section-title" style="margin-bottom:16px">Three industries. One growth partner.</h2>
+      <p class="section-lead" style="margin-top:0">We don't spread ourselves thin. Everything we do is sharpened for the way Lagos hospitality and property buyers actually search, book and decide.</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card">
+        <span class="icon-tile icon-tile--primary" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9v.01M9 12v.01M9 15v.01"></path></svg></span>
+        <h3 style="font-size:23px;letter-spacing:-0.01em;margin:0 0 10px">Hotels & short-stays</h3>
+        <p style="font-size:15px;line-height:1.55;color:var(--text-secondary);margin:0 0 16px">Fill more rooms and win the searches that matter. We help you own <strong style="color:var(--text-primary);font-weight:600">Hotels Lagos</strong> and <strong style="color:var(--text-primary);font-weight:600">AirBnB Lagos</strong> — driving direct bookings that don't cost a commission.</p>
+        <a href="/services" style="display:inline-flex;align-items:center;gap:6px;color:var(--primary);font-weight:600;font-size:15px;text-decoration:none">How we help <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+      </div>
+      <div class="card">
+        <span class="icon-tile icon-tile--amber" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h0a2 2 0 0 0 2-2V2M5 2v20M21 15V2a5 5 0 0 0-3 4.5c0 2.5 3 3 3 3v5.5"></path></svg></span>
+        <h3 style="font-size:23px;letter-spacing:-0.01em;margin:0 0 10px">Restaurants & lounges</h3>
+        <p style="font-size:15px;line-height:1.55;color:var(--text-secondary);margin:0 0 16px">Pack your tables every night. We turn <strong style="color:var(--text-primary);font-weight:600">Restaurant and lounge Lagos</strong> demand into reservations, repeat regulars and weekends that sell out.</p>
+        <a href="/services" style="display:inline-flex;align-items:center;gap:6px;color:var(--primary);font-weight:600;font-size:15px;text-decoration:none">How we help <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+      </div>
+      <div class="card">
+        <span class="icon-tile icon-tile--green" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 21V10l8-6 8 6v11M9 21v-6h6v6"></path></svg></span>
+        <h3 style="font-size:23px;letter-spacing:-0.01em;margin:0 0 10px">Real estate</h3>
+        <p style="font-size:15px;line-height:1.55;color:var(--text-secondary);margin:0 0 16px">Sell and let faster. We build campaigns around <strong style="color:var(--text-primary);font-weight:600">real estate Lagos</strong> buyer intent so qualified enquiries land in your pipeline — not just clicks.</p>
+        <a href="/services" style="display:inline-flex;align-items:center;gap:6px;color:var(--primary);font-weight:600;font-size:15px;text-decoration:none">How we help <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS TEASER ===== -->
+<section class="container section" aria-label="How we work">
+  <div style="display:flex;flex-wrap:wrap;gap:40px 64px">
+    <div style="flex:1 1 300px;min-width:0">
+      <span class="section-eyebrow">How we work</span>
+      <h2 class="section-title" style="margin-bottom:20px">A simple system, run with discipline.</h2>
+      <p style="font-size:17px;line-height:1.55;color:var(--text-secondary);margin:0 0 28px;max-width:46ch">No jargon, no vanity metrics. Four steps, repeated every month, tuned to the numbers that move your business.</p>
+      <a href="/services" class="btn btn-outline">See the full process</a>
+    </div>
+    <ol class="process-list" style="flex:1 1 360px;min-width:0">
+      <li class="process-step"><span class="process-number">01</span><div><h3 class="process-title">Listen</h3><p class="process-body">We learn your rooms, menu or listings, your margins and your market.</p></div></li>
+      <li class="process-step"><span class="process-number">02</span><div><h3 class="process-title">Plan</h3><p class="process-body">A clear, keyword-led plan built around how Lagos buyers actually search.</p></div></li>
+      <li class="process-step"><span class="process-number">03</span><div><h3 class="process-title">Launch</h3><p class="process-body">Campaigns, content and landing pages that turn interest into bookings.</p></div></li>
+      <li class="process-step"><span class="process-number">04</span><div><h3 class="process-title">Grow</h3><p class="process-body">We double down on what works and report in plain revenue terms.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section--surface" aria-label="What clients say">
+  <div class="container section">
+    <div class="section-head">
+      <span class="section-eyebrow">In their words</span>
+      <h2 class="section-title">Operators who'd recommend us.</h2>
+    </div>
+    <div class="cards-grid">
+      <figure class="card" style="margin:0;display:flex;flex-direction:column">
+        <div aria-hidden="true" style="color:var(--primary);margin-bottom:12px"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M10 11H6.5a.5.5 0 0 1-.5-.5V8c0-1.1.9-2 2-2h.5a1 1 0 0 0 0-2H8a4 4 0 0 0-4 4v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2zm10 0h-3.5a.5.5 0 0 1-.5-.5V8c0-1.1.9-2 2-2h.5a1 1 0 0 0 0-2H18a4 4 0 0 0-4 4v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2z"></path></svg></div>
+        <blockquote style="margin:0 0 18px;font-size:17px;line-height:1.55;color:var(--text-primary)">"Direct bookings are up and we've cut our reliance on the big platforms. Matombo understood our property in a week, not a quarter."</blockquote>
+        <figcaption style="margin-top:auto;display:flex;align-items:center;gap:12px"><span class="avatar" aria-hidden="true">A&#1054;</span><span style="line-height:1.3"><span style="display:block;font-weight:600;font-size:15px">Adaeze Okafor</span><span style="display:block;font-size:13px;color:var(--text-muted)">GM, boutique hotel &middot; Victoria Island</span></span></figcaption>
+      </figure>
+      <figure class="card" style="margin:0;display:flex;flex-direction:column">
+        <div aria-hidden="true" style="color:var(--primary);margin-bottom:12px"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M10 11H6.5a.5.5 0 0 1-.5-.5V8c0-1.1.9-2 2-2h.5a1 1 0 0 0 0-2H8a4 4 0 0 0-4 4v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2zm10 0h-3.5a.5.5 0 0 1-.5-.5V8c0-1.1.9-2 2-2h.5a1 1 0 0 0 0-2H18a4 4 0 0 0-4 4v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2z"></path></svg></div>
+        <blockquote style="margin:0 0 18px;font-size:17px;line-height:1.55;color:var(--text-primary)">"Friday and Saturday now sell out before the weekend even starts. The reservations just keep coming through."</blockquote>
+        <figcaption style="margin-top:auto;display:flex;align-items:center;gap:12px"><span class="avatar" aria-hidden="true">TB</span><span style="line-height:1.3"><span style="display:block;font-weight:600;font-size:15px">Tunde Bakare</span><span style="display:block;font-size:13px;color:var(--text-muted)">Owner, lounge & kitchen &middot; Lekki</span></span></figcaption>
+      </figure>
+      <figure class="card" style="margin:0;display:flex;flex-direction:column">
+        <div aria-hidden="true" style="color:var(--primary);margin-bottom:12px"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M10 11H6.5a.5.5 0 0 1-.5-.5V8c0-1.1.9-2 2-2h.5a1 1 0 0 0 0-2H8a4 4 0 0 0-4 4v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2zm10 0h-3.5a.5.5 0 0 1-.5-.5V8c0-1.1.9-2 2-2h.5a1 1 0 0 0 0-2H18a4 4 0 0 0-4 4v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2z"></path></svg></div>
+        <blockquote style="margin:0 0 18px;font-size:17px;line-height:1.55;color:var(--text-primary)">"Our enquiries are finally qualified. The pipeline Matombo built has paid for itself many times over."</blockquote>
+        <figcaption style="margin-top:auto;display:flex;align-items:center;gap:12px"><span class="avatar" aria-hidden="true">CE</span><span style="line-height:1.3"><span style="display:block;font-weight:600;font-size:15px">Chidi Eze</span><span style="display:block;font-size:13px;color:var(--text-muted)">Principal, property firm &middot; Ikoyi</span></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<section class="section--dark">
+  <div class="container section" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px">
+    <div style="flex:1 1 420px;min-width:0">
+      <h2 class="section-title" style="margin-bottom:14px;color:var(--stone-50)">Let's grow your bookings.</h2>
+      <p style="font-size:18px;line-height:1.55;color:var(--stone-300);margin:0;max-width:52ch">Book a free 30-minute strategy call. We'll map the fastest path to more revenue for your Lagos brand — no pitch, no obligation.</p>
+    </div>
+    <a href="/contact" class="btn btn-primary" style="height:54px;font-size:18px">Book a free strategy call
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
+
+</body>
+</html>

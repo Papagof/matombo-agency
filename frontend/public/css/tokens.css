@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Base brand */
+  --terracotta-600: #C2410C;
+  --terracotta-700: #9A3412;
+  --amber-500: #F59E0B;
+
+  /* Warm neutrals (stone) */
+  --stone-900: #1C1917;
+  --stone-700: #57534E;
+  --stone-500: #78716C;
+  --stone-300: #D6D3D1;
+  --stone-200: #E7E5E4;
+  --stone-100: #F5F5F4;
+  --stone-50: #FAFAF9;
+
+  /* Semantic status */
+  --green-600: #16A34A;
+  --orange-600: #D97706;
+  --red-600: #DC2626;
+
+  /* Semantic aliases */
+  --primary: var(--terracotta-600);
+  --primary-hover: var(--terracotta-700);
+  --accent: var(--amber-500);
+
+  --bg-page: var(--stone-50);
+  --surface: var(--stone-100);
+  --surface-raised: var(--stone-200);
+
+  --text-primary: var(--stone-900);
+  --text-secondary: var(--stone-700);
+  --text-muted: var(--stone-500);
+  --text-on-primary: #FFFFFF;
+
+  --border: var(--stone-300);
+
+  --success: var(--green-600);
+  --warning: var(--orange-600);
+  --error: var(--red-600);
+
+  --ring-primary: rgba(194, 65, 12, 0.12);
+  --glow-primary: rgba(194, 65, 12, 0.25);
+
+  /* Spacing (4px grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --container-max: 1200px;
+  --container-pad: 24px;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-card-hover: 0 4px 16px rgba(28, 25, 23, 0.06);
+  --shadow-button-glow: 0 4px 12px rgba(194, 65, 12, 0.25);
+  --shadow-modal: 0 24px 48px rgba(28, 25, 23, 0.12);
+  --shadow-popover: 0 8px 24px rgba(28, 25, 23, 0.08);
+
+  /* Motion */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+
+  /* Type */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}

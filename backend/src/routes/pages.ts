@@ -18,7 +18,19 @@ function formatDate(date: Date): string {
   return date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 }
 
-pagesRouter.get("/services.dc.html", async (req, res) => {
+pagesRouter.get("/", (req, res) => {
+  res.render("index");
+});
+
+pagesRouter.get("/about", (req, res) => {
+  res.render("about");
+});
+
+pagesRouter.get("/contact", (req, res) => {
+  res.render("contact");
+});
+
+pagesRouter.get("/services", async (req, res) => {
   const [services, tiers] = await Promise.all([
     prisma.service.findMany({ orderBy: { sortOrder: "asc" } }),
     prisma.pricingTier.findMany({ orderBy: { sortOrder: "asc" } }),
@@ -30,7 +42,7 @@ pagesRouter.get("/services.dc.html", async (req, res) => {
   });
 });
 
-pagesRouter.get("/portfolio.dc.html", async (req, res) => {
+pagesRouter.get("/portfolio", async (req, res) => {
   const caseStudies = await prisma.caseStudy.findMany({ orderBy: { sortOrder: "asc" } });
 
   res.render("portfolio", {
@@ -42,7 +54,7 @@ pagesRouter.get("/portfolio.dc.html", async (req, res) => {
   });
 });
 
-pagesRouter.get("/blog.dc.html", async (req, res) => {
+pagesRouter.get("/blog", async (req, res) => {
   const posts = await prisma.blogPost.findMany({ orderBy: { sortOrder: "asc" } });
 
   res.render("blog", {

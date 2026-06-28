@@ -1,0 +1,139 @@
+<%
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About Matombo Agency",
+  about: {
+    "@type": "Organization",
+    name: "Matombo Agency",
+    areaServed: "Lagos, Nigeria",
+    email: "contact@matomboagency.com",
+    telephone: "+234-802-313-6685",
+    foundingLocation: "Lagos",
+    description: "Digital marketing agency for hotels, restaurants and real estate in Lagos.",
+  },
+};
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('partials/head', {
+  title: "About Matombo Agency — Lagos digital marketing for hospitality & property",
+  description: "Meet Matombo Agency: a Lagos-born digital marketing team focused on hotels, AirBnB, restaurants, lounges and real estate. Local insight, revenue-first thinking.",
+  keywords: "digital marketing agency Lagos, Hotels Lagos, AirBnB Lagos, Restaurant and lounge Lagos, real estate Lagos",
+  jsonLd: jsonLd,
+}) %>
+</head>
+<body>
+
+<%- include('partials/nav', { active: 'about' }) %>
+
+<!-- HERO -->
+<section class="container section--hero">
+  <div style="display:flex;flex-wrap:wrap;gap:48px;align-items:flex-end">
+    <div style="flex:2 1 460px;min-width:0">
+      <span class="hero-eyebrow">About the agency</span>
+      <h1 class="hero-title">We're the agency Lagos hospitality trusts.</h1>
+      <p class="hero-subtitle" style="max-width:58ch">Matombo was built in Lagos, for Lagos. We exist to help hotels, short-stays, restaurants, lounges and property teams grow with marketing that's measured in revenue — not likes.</p>
+    </div>
+    <div style="flex:1 1 280px;min-width:0;display:flex;gap:24px;flex-wrap:wrap">
+      <div><div style="font-family:var(--font-display);font-weight:700;font-size:clamp(34px,4vw,48px);line-height:1;color:var(--primary)">2019</div><p style="margin:8px 0 0;color:var(--text-muted);font-size:14px">founded in Lagos</p></div>
+      <div><div style="font-family:var(--font-display);font-weight:700;font-size:clamp(34px,4vw,48px);line-height:1;color:var(--primary)">40+</div><p style="margin:8px 0 0;color:var(--text-muted);font-size:14px">brands grown</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="container section--tight">
+  <div style="display:flex;flex-wrap:wrap;gap:48px;align-items:center">
+    <div style="flex:1 1 320px;min-width:0">
+      <div style="border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border)">
+        <img src="https://picsum.photos/seed/lagosteam/900/700" alt="The Matombo team collaborating in a bright Lagos studio" loading="lazy" width="900" height="700" style="height:clamp(300px,38vw,440px);object-fit:cover;filter:grayscale(1) contrast(1.04) sepia(0.4) saturate(1.5) hue-rotate(-12deg)">
+      </div>
+    </div>
+    <div style="flex:1 1 380px;min-width:0">
+      <span class="section-eyebrow">Our story</span>
+      <h2 style="font-size:clamp(28px,3.6vw,40px);line-height:1.08;margin:0 0 18px">Local insight beats borrowed playbooks.</h2>
+      <p style="font-size:16px;line-height:1.65;color:var(--text-secondary);margin:0 0 16px">We started Matombo after watching brilliant Lagos venues lose bookings to slick listings and louder budgets. The problem was rarely the product — it was marketing that didn't understand the local buyer.</p>
+      <p style="font-size:16px;line-height:1.65;color:var(--text-secondary);margin:0">So we built an agency that does. We know how a guest searches for a hotel in Lagos, how a couple chooses a lounge for the weekend, and how a family decides on a home. We turn that understanding into demand you can measure.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section--surface">
+  <div class="container section--tight">
+    <div class="section-head">
+      <span class="section-eyebrow">What we believe</span>
+      <h2 class="section-title">Principles we don't bend.</h2>
+    </div>
+    <div class="cards-grid cards-grid--narrow">
+      <div class="card">
+        <span class="icon-tile icon-tile--primary" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l4-4 4 4 5-6"></path></svg></span>
+        <h3 style="font-size:20px;margin:0 0 8px">Revenue first</h3>
+        <p style="margin:0;font-size:15px;line-height:1.55;color:var(--text-secondary)">If it doesn't move bookings, covers or closings, we don't celebrate it.</p>
+      </div>
+      <div class="card">
+        <span class="icon-tile icon-tile--primary" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
+        <h3 style="font-size:20px;margin:0 0 8px">Radical clarity</h3>
+        <p style="margin:0;font-size:15px;line-height:1.55;color:var(--text-secondary)">Plain-language reporting. You always know what we did and what it earned.</p>
+      </div>
+      <div class="card">
+        <span class="icon-tile icon-tile--primary" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21.4 8 14 2 9.4h7.6z"></path></svg></span>
+        <h3 style="font-size:20px;margin:0 0 8px">Local craft</h3>
+        <p style="margin:0;font-size:15px;line-height:1.55;color:var(--text-secondary)">Lagos-made creative and copy that sounds like your brand, not a template.</p>
+      </div>
+      <div class="card">
+        <span class="icon-tile icon-tile--primary" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>
+        <h3 style="font-size:20px;margin:0 0 8px">Long-term partners</h3>
+        <p style="margin:0;font-size:15px;line-height:1.55;color:var(--text-secondary)">We grow with a handful of brands, not a churn of one-off projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="container section--tight">
+  <div class="section-head">
+    <span class="section-eyebrow">The people</span>
+    <h2 class="section-title">A small team, deep in your market.</h2>
+  </div>
+  <div class="cards-grid cards-grid--narrow" style="gap:var(--space-6)">
+    <div>
+      <div style="border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);margin-bottom:14px"><img src="https://picsum.photos/seed/founder1/600/640" alt="Portrait of Matombo founder and strategy lead" loading="lazy" width="600" height="640" style="aspect-ratio:5/6;object-fit:cover;filter:grayscale(1) contrast(1.04) sepia(0.4) saturate(1.4) hue-rotate(-12deg)"></div>
+      <h3 style="font-size:19px;margin:0">Godfrey Omenai</h3>
+      <p style="margin:4px 0 0;font-size:14px;color:var(--text-muted)">Founder & strategy lead</p>
+    </div>
+    <div>
+      <div style="border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);margin-bottom:14px"><img src="https://picsum.photos/seed/founder2/600/640" alt="Portrait of Matombo head of performance marketing" loading="lazy" width="600" height="640" style="aspect-ratio:5/6;object-fit:cover;filter:grayscale(1) contrast(1.04) sepia(0.4) saturate(1.4) hue-rotate(-12deg)"></div>
+      <h3 style="font-size:19px;margin:0">Matana Omenai</h3>
+      <p style="margin:4px 0 0;font-size:14px;color:var(--text-muted)">Head of performance</p>
+    </div>
+    <div>
+      <div style="border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);margin-bottom:14px"><img src="https://picsum.photos/seed/founder3/600/640" alt="Portrait of Matombo creative director" loading="lazy" width="600" height="640" style="aspect-ratio:5/6;object-fit:cover;filter:grayscale(1) contrast(1.04) sepia(0.4) saturate(1.4) hue-rotate(-12deg)"></div>
+      <h3 style="font-size:19px;margin:0">Matilda Omenai</h3>
+      <p style="margin:4px 0 0;font-size:14px;color:var(--text-muted)">Creative director</p>
+    </div>
+    <div>
+      <div style="border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);margin-bottom:14px"><img src="https://picsum.photos/seed/founder4/600/640" alt="Portrait of Matombo content and SEO lead" loading="lazy" width="600" height="640" style="aspect-ratio:5/6;object-fit:cover;filter:grayscale(1) contrast(1.04) sepia(0.4) saturate(1.4) hue-rotate(-12deg)"></div>
+      <h3 style="font-size:19px;margin:0">Seyi Adewale</h3>
+      <p style="margin:4px 0 0;font-size:14px;color:var(--text-muted)">Content & SEO lead</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="section--dark">
+  <div class="container section--tight" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px">
+    <div style="flex:1 1 420px;min-width:0">
+      <h2 style="font-size:clamp(28px,4.5vw,48px);line-height:1.06;margin:0 0 14px;color:var(--stone-50)">Want a team this invested in your numbers?</h2>
+      <p style="font-size:18px;line-height:1.55;color:var(--stone-300);margin:0;max-width:52ch">Tell us about your brand. We'll tell you, honestly, whether we can grow it.</p>
+    </div>
+    <a href="/contact" class="btn btn-primary" style="height:54px;font-size:18px">Book a free strategy call <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
+
+</body>
+</html>
