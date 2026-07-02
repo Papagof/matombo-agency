@@ -1,15 +1,10 @@
 import { Router } from "express";
-import { ContactBusinessType } from "@prisma/client";
-import { prisma } from "../db";
+import { supabase } from "../supabase";
 
 export const contactRouter = Router();
 
-const BUSINESS_VALUES: Record<string, ContactBusinessType> = {
-  hotel: ContactBusinessType.HOTEL,
-  restaurant: ContactBusinessType.RESTAURANT,
-  realestate: ContactBusinessType.REAL_ESTATE,
-  other: ContactBusinessType.OTHER,
-};
+const VALID_BUSINESS = ["hotel", "restaurant", "realestate", "other"] as const;
+type BusinessType = (typeof VALID_BUSINESS)[number];
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -23,12 +18,12 @@ contactRouter.post("/api/contact", async (req, res) => {
   const name = asString(body.name);
   const email = asString(body.email);
   const phone = asString(body.phone) || null;
-  const business = BUSINESS_VALUES[asString(body.business)];
+  const business = asString(body.business) as BusinessType;
   const budget = asString(body.budget) || null;
   const message = asString(body.message);
   const consent = body.consent === true;
 
-  if (!name || !email || !business || !message || !consent) {
+  if (!name || !email || !VALID_BUSINESS.includes(business) || !message || !consent) {
     res.status(400).json({ ok: false, error: "Please fill in all required fields." });
     return;
   }
@@ -37,9 +32,21 @@ contactRouter.post("/api/contact", async (req, res) => {
     return;
   }
 
-  await prisma.contactSubmission.create({
-    data: { name, email, phone, business, budget, message, consent },
+  const { error } = await supabase.from("contact_submissions").insert({
+    name,
+    email,
+    phone,
+    business,
+    budget,
+    message,
+    consent,
   });
+
+  if (error) {
+    console.error("Supabase insert error:", error.message);
+    res.status(500).json({ ok: false, error: "Something went wrong. Please try again." });
+    return;
+  }
 
   res.status(201).json({ ok: true });
 });

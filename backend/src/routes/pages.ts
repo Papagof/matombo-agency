@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { prisma } from "../db";
+import { supabase } from "../supabase";
 import { ICON_PATHS } from "../icons";
 import { INDUSTRY_BADGE } from "../industry";
 
@@ -14,8 +14,12 @@ function initials(name: string): string {
     .toUpperCase();
 }
 
-function formatDate(date: Date): string {
-  return date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+function formatDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 }
 
 pagesRouter.get("/", (req, res) => {
@@ -31,39 +35,57 @@ pagesRouter.get("/contact", (req, res) => {
 });
 
 pagesRouter.get("/services", async (req, res) => {
-  const [services, tiers] = await Promise.all([
-    prisma.service.findMany({ orderBy: { sortOrder: "asc" } }),
-    prisma.pricingTier.findMany({ orderBy: { sortOrder: "asc" } }),
+  const [{ data: services }, { data: tiers }] = await Promise.all([
+    supabase.from("services").select("*").order("sort_order"),
+    supabase.from("pricing_tiers").select("*").order("sort_order"),
   ]);
 
   res.render("services", {
-    services: services.map((s) => ({ ...s, iconPath: ICON_PATHS[s.icon] ?? "" })),
-    tiers,
+    services: (services ?? []).map((s) => ({
+      ...s,
+      iconPath: ICON_PATHS[s.icon as string] ?? "",
+    })),
+    tiers: (tiers ?? []).map((t) => ({
+      ...t,
+      priceLabel: t.price_label,
+      priceSuffix: t.price_suffix,
+      ctaLabel: t.cta_label,
+    })),
   });
 });
 
 pagesRouter.get("/portfolio", async (req, res) => {
-  const caseStudies = await prisma.caseStudy.findMany({ orderBy: { sortOrder: "asc" } });
+  const { data: caseStudies } = await supabase
+    .from("case_studies")
+    .select("*")
+    .order("sort_order");
 
   res.render("portfolio", {
-    caseStudies: caseStudies.map((c) => ({
+    caseStudies: (caseStudies ?? []).map((c) => ({
       ...c,
-      badge: INDUSTRY_BADGE[c.industry],
+      imageSeed: c.image_seed,
+      badge: INDUSTRY_BADGE[c.industry as keyof typeof INDUSTRY_BADGE],
       metrics: c.metrics as { value: string; label: string }[],
     })),
   });
 });
 
 pagesRouter.get("/blog", async (req, res) => {
-  const posts = await prisma.blogPost.findMany({ orderBy: { sortOrder: "asc" } });
+  const { data: posts } = await supabase
+    .from("blog_posts")
+    .select("*")
+    .order("sort_order");
 
   res.render("blog", {
-    posts: posts.map((p) => ({
+    posts: (posts ?? []).map((p) => ({
       ...p,
-      badge: INDUSTRY_BADGE[p.industry],
-      dateLabel: formatDate(p.publishedAt),
-      readLabel: `${p.readMinutes} min read`,
-      authorInitials: initials(p.authorName),
+      imageSeed: p.image_seed,
+      authorName: p.author_name,
+      publishedAt: new Date(p.published_at),
+      badge: INDUSTRY_BADGE[p.industry as keyof typeof INDUSTRY_BADGE],
+      dateLabel: formatDate(p.published_at),
+      readLabel: `${p.read_minutes} min read`,
+      authorInitials: initials(p.author_name),
     })),
   });
 });
