@@ -35,10 +35,12 @@ pagesRouter.get("/contact", (req, res) => {
 });
 
 pagesRouter.get("/services", async (req, res) => {
-  const [{ data: services }, { data: tiers }] = await Promise.all([
+  const [{ data: services, error: svcErr }, { data: tiers, error: tierErr }] = await Promise.all([
     supabase.from("services").select("*").order("sort_order"),
     supabase.from("pricing_tiers").select("*").order("sort_order"),
   ]);
+  if (svcErr) console.error("services query error:", svcErr.message);
+  if (tierErr) console.error("pricing_tiers query error:", tierErr.message);
 
   res.render("services", {
     services: (services ?? []).map((s) => ({
@@ -55,10 +57,11 @@ pagesRouter.get("/services", async (req, res) => {
 });
 
 pagesRouter.get("/portfolio", async (req, res) => {
-  const { data: caseStudies } = await supabase
+  const { data: caseStudies, error } = await supabase
     .from("case_studies")
     .select("*")
     .order("sort_order");
+  if (error) console.error("case_studies query error:", error.message);
 
   res.render("portfolio", {
     caseStudies: (caseStudies ?? []).map((c) => ({
@@ -71,10 +74,11 @@ pagesRouter.get("/portfolio", async (req, res) => {
 });
 
 pagesRouter.get("/blog", async (req, res) => {
-  const { data: posts } = await supabase
+  const { data: posts, error } = await supabase
     .from("blog_posts")
     .select("*")
     .order("sort_order");
+  if (error) console.error("blog_posts query error:", error.message);
 
   res.render("blog", {
     posts: (posts ?? []).map((p) => ({

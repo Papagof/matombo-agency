@@ -1,4 +1,4 @@
-import { Industry } from "@prisma/client";
+type Industry = "HOTELS" | "RESTAURANT" | "REAL_ESTATE";
 
 export const INDUSTRY_BADGE: Record<Industry, { label: string; bg: string; color: string }> = {
   HOTELS: { label: "Hotels & AirBnB", bg: "rgba(194,65,12,0.12)", color: "var(--primary)" },

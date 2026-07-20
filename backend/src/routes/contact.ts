@@ -6,6 +6,13 @@ export const contactRouter = Router();
 const VALID_BUSINESS = ["hotel", "restaurant", "realestate", "other"] as const;
 type BusinessType = (typeof VALID_BUSINESS)[number];
 
+const BUSINESS_TO_ENUM: Record<BusinessType, string> = {
+  hotel: "HOTEL",
+  restaurant: "RESTAURANT",
+  realestate: "REAL_ESTATE",
+  other: "OTHER",
+};
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function asString(value: unknown): string {
@@ -36,7 +43,7 @@ contactRouter.post("/api/contact", async (req, res) => {
     name,
     email,
     phone,
-    business,
+    business: BUSINESS_TO_ENUM[business],
     budget,
     message,
     consent,
